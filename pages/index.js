@@ -1,4 +1,6 @@
-import { Flex, Box } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
+import Header from '../components/Header'; // Import the Header component
+import AboutUsSection from '../components/AboutUsSection'; // Import the About Us component
 import Property from '../components/Property';
 import { baseUrl, fetchApi } from '../utils/fetchApi';
 import HeroSection from '../components/HeroSection';
@@ -22,10 +24,16 @@ const details = [
 
 const Home = ({ propertiesForSale, propertiesForRent }) => (
   <Box>
+    {/* Header Section */}
+    <Header />
+
+    {/* About Us Section */}
+    <AboutUsSection />
+
     <HeroSection />
 
     {details.map((item) => (
-      <CardSection key={item.id} item={item} inverted={item.id % 2 == 0 && true} />
+      <CardSection key={item.id} item={item} inverted={item.id % 2 === 0} />
     ))}
 
     <Banner
